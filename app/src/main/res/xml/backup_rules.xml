@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Keep ordinary app settings/files restorable, but never cloud-backup encrypted vault payloads. -->
+    <exclude domain="file" path="Vault/" />
+    <exclude domain="external" path="Vault/" />
+</full-backup-content>
