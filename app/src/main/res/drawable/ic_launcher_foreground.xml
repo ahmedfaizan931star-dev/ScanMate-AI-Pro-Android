@@ -1,8 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:width="66dp"
-        android:height="66dp"
-        android:drawable="@drawable/logo_1779369607766"
-        android:gravity="center" />
-</layer-list>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <path
+        android:fillColor="#2563EB"
+        android:pathData="M18,18h72v72h-72z" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M32,24h32l12,12v48h-44z" />
+
+    <path
+        android:fillColor="#DBEAFE"
+        android:pathData="M64,24v12h12z" />
+
+    <path
+        android:fillColor="#2563EB"
+        android:pathData="M40,46h28v4h-28zM40,56h28v4h-28zM40,66h20v4h-20z" />
+
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M70,70m-12,0a12,12 0,1 0,24 0a12,12 0,1 0,-24 0" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M66,70l3,3l7,-8l3,3l-10,11l-6,-6z" />
+</vector>
