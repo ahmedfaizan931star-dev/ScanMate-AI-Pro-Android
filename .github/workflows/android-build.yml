@@ -1,20 +1,15 @@
-name: Android Build APK and AAB
+name: Build ScanMate AI Pro APK and AAB
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
-      - master
+  workflow_dispatch:
 
 jobs:
   build:
     name: Build Debug APK, Release APK, and Release AAB
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: ScanMATE-AI-V3-polished-main
 
     steps:
       - name: Checkout project
@@ -26,35 +21,35 @@ jobs:
           distribution: temurin
           java-version: 21
 
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
       - name: Make Gradle executable
         run: chmod +x ./gradlew
 
-      - name: Clean project
-        run: ./gradlew clean
-
       - name: Build Debug APK
-        run: ./gradlew assembleDebug
+        run: ./gradlew clean assembleDebug --stacktrace
 
       - name: Build Release APK
-        run: ./gradlew assembleRelease
+        run: ./gradlew assembleRelease --stacktrace
 
       - name: Build Release AAB
-        run: ./gradlew bundleRelease
+        run: ./gradlew bundleRelease --stacktrace
 
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: debug-apk
-          path: ScanMATE-AI-V3-polished-main/app/build/outputs/apk/debug/*.apk
+          name: scanmate-ai-pro-debug-apk
+          path: app/build/outputs/apk/debug/*.apk
 
       - name: Upload Release APK
         uses: actions/upload-artifact@v4
         with:
-          name: release-apk
-          path: ScanMATE-AI-V3-polished-main/app/build/outputs/apk/release/*.apk
+          name: scanmate-ai-pro-release-apk
+          path: app/build/outputs/apk/release/*.apk
 
       - name: Upload Release AAB
         uses: actions/upload-artifact@v4
         with:
-          name: release-aab
-          path: ScanMATE-AI-V3-polished-main/app/build/outputs/bundle/release/*.aab
+          name: scanmate-ai-pro-release-aab
+          path: app/build/outputs/bundle/release/*.aab
